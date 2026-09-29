@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { margin: 0; background: #15112b; color: #f4efe6; font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif; }
+
+/* Pieces Tailwind utilities can't express cleanly */
+.sun-stripes {
+  -webkit-mask: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
+          mask: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
+}
+.skyline-shape {
+  clip-path: polygon(0 100%,0 60%,6% 60%,6% 30%,11% 30%,11% 70%,17% 70%,17% 20%,22% 20%,22% 55%,30% 55%,30% 40%,36% 40%,36% 75%,44% 75%,44% 25%,49% 25%,49% 65%,57% 65%,57% 35%,63% 35%,63% 70%,70% 70%,70% 15%,76% 15%,76% 60%,83% 60%,83% 45%,90% 45%,90% 72%,100% 72%,100% 100%);
+}
+.dash-lines { background: repeating-linear-gradient(90deg, #f4efe6 0 46px, transparent 46px 100px); }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
