@@ -1,0 +1,58 @@
+:root {
+  --night: #15112b;
+  --dusk: #3a1f5d;
+  --ember: #ff7a2f;
+  --pearl: #f4efe6;
+  --muted: #b7aecb;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--night); color: var(--pearl); font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif; }
+
+#hero {
+  position: relative; height: 100vh; width: 100%; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 14vh 1.5rem 0;
+  background: linear-gradient(180deg, var(--night) 0%, var(--dusk) 60%, #7a2f5a 100%);
+}
+.sun {
+  position: absolute; left: 50%; bottom: 20vh; width: 34vmin; height: 34vmin; transform: translateX(-50%);
+  border-radius: 50%; background: linear-gradient(180deg, #ffb35c, var(--ember)); opacity: .9;
+  -webkit-mask: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
+          mask: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
+}
+.skyline {
+  position: absolute; left: 0; right: 0; bottom: 19vh; height: 14vh; background: #0d0a1e;
+  clip-path: polygon(0 100%,0 60%,6% 60%,6% 30%,11% 30%,11% 70%,17% 70%,17% 20%,22% 20%,22% 55%,30% 55%,30% 40%,36% 40%,36% 75%,44% 75%,44% 25%,49% 25%,49% 65%,57% 65%,57% 35%,63% 35%,63% 70%,70% 70%,70% 15%,76% 15%,76% 60%,83% 60%,83% 45%,90% 45%,90% 72%,100% 72%,100% 100%);
+}
+
+#headline {
+  position: relative; z-index: 2; margin: 0; font-weight: 300; line-height: 1; white-space: nowrap;
+  font-size: clamp(1.3rem, 5vw, 4.4rem); letter-spacing: .55em; padding-left: .55em;
+}
+#headline span { display: inline-block; will-change: transform, opacity; }
+#headline .gap { width: .6em; }
+
+#stats {
+  position: relative; z-index: 2; margin-top: 6vh; width: 100%; max-width: 64rem; text-align: center;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem 2.5rem;
+}
+.stat { opacity: 0; will-change: transform, opacity; }
+.stat p { margin: 0; font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ember); }
+.stat small { display: block; margin-top: .3rem; font-size: .85rem; color: var(--muted); }
+
+.road { position: absolute; left: 0; right: 0; bottom: 0; height: 19vh; background: #0a0818; border-top: 3px solid var(--ember); overflow: hidden; }
+.dashes {
+  position: absolute; left: -50%; width: 200%; top: 55%; height: 4px; opacity: .55; will-change: transform;
+  background: repeating-linear-gradient(90deg, var(--pearl) 0 46px, transparent 46px 100px);
+}
+
+.car { position: absolute; z-index: 3; bottom: calc(19vh - 26px); left: 0; width: min(48vw, 560px); min-width: 250px; will-change: transform; }
+.car svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.spacer { height: 250vh; }
+
+@media (max-width: 640px) {
+  #stats { grid-template-columns: repeat(2, 1fr); }
+  #headline { letter-spacing: .3em; padding-left: .3em; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
